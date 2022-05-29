@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Requests\WithdrawalRequest;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,8 @@ Route::get('/dashboard', function () {
 Route::middleware(['verified'])->group(function () {
     Route::post('/withdraw', [WithdrawalController::class, 'store'])->name('withdrawal.store');
     Route::view('/withdraw', 'withdraw')->name('withdrawal.show');
+
+    Route::resource('post', PostController::class);
 });
 
 

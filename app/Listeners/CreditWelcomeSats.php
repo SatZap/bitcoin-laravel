@@ -9,22 +9,6 @@ use Illuminate\Auth\Events\Verified;
 
 class CreditWelcomeSats
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
-     *
-     * @param  object  $event
-     * @return void
-     */
     public function handle(Verified $event)
     {
         $event->user->transactions()->create([

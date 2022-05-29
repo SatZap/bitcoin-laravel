@@ -18,6 +18,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Transaction::class);
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function getBalance()
     {
         $credits = $this->transactions()->where('type', TransactionType::Credit)->sum('amount');

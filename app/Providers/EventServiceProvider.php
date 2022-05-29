@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\PostCreated;
+use App\Listeners\CreditNewPostSats;
 use App\Listeners\CreditWelcomeSats;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Events\Verified;
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         Verified::class => [
             CreditWelcomeSats::class,
+        ],
+        PostCreated::class => [
+            CreditNewPostSats::class,
         ],
     ];
 
